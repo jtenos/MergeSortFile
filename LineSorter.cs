@@ -39,9 +39,11 @@ public class LineSorter
         _comparison = comparison ?? ((s1, s2) => s1.CompareTo(s2));
         _newLine = newLine ?? Environment.NewLine;
 
-        if (numLinesPerTempFile < 1 || numLinesPerTempFile > 1_000_000)
+        _numLinesPerTempFile = numLinesPerTempFile;
+
+        if (_numLinesPerTempFile < 1 || _numLinesPerTempFile > 1_000_000)
         {
-            numLinesPerTempFile = 1_000;
+            _numLinesPerTempFile = 1_000;
         }
 
         _tempDir = new(Path.Combine(Path.GetTempPath(), $"file-line-sorter-{Guid.NewGuid():N}"));
@@ -166,7 +168,7 @@ public class LineSorter
             writer.Write(line);
             writer.Write(_newLine);
             ++outputFileCount;
-            if (outputFileCount == 1000)
+            if (outputFileCount == _numLinesPerTempFile)
             {
                 writer.Dispose();
                 writer = null;
