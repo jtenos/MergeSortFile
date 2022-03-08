@@ -11,6 +11,7 @@ public class LineSorter
     private Comparison<string> _comparison = default!;
     private string _newLine = default!;
     private DirectoryInfo _tempDir = default!;
+    private int _numLinesPerTempFile;
 
     public LineSorter(ILogger<LineSorter>? logger = null)
     {
@@ -20,7 +21,8 @@ public class LineSorter
     public void SortFile(string inputFileFullName,
         string outputFileFullName,
         Comparison<string>? comparison = null,
-        string? newLine = null)
+        string? newLine = null,
+        int numLinesPerTempFile = 1000)
     {
         if (!File.Exists(inputFileFullName))
         {
@@ -36,6 +38,11 @@ public class LineSorter
 
         _comparison = comparison ?? ((s1, s2) => s1.CompareTo(s2));
         _newLine = newLine ?? Environment.NewLine;
+
+        if (numLinesPerTempFile < 1 || numLinesPerTempFile > 1_000_000)
+        {
+            numLinesPerTempFile = 1_000;
+        }
 
         _tempDir = new(Path.Combine(Path.GetTempPath(), $"file-line-sorter-{Guid.NewGuid():N}"));
         _tempDir.Create();
