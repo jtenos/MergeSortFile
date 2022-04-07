@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -10,6 +10,15 @@
 		<AssemblyVersion>0.1.0.0</AssemblyVersion>
 		<AssemblyFileVersion>0.1.0.0</AssemblyFileVersion>
 		<InformationalVersion>0.1.0.0</InformationalVersion>
+		<PackageVersion>0.1.0</PackageVersion>
+		<VersionPrefix>0.1.0</VersionPrefix>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Authors>No Edge Software LLC</Authors>
+		<PackageId>NoEdgeSoftware.MergeSortFile</PackageId>
+		<Description>Simple utility for merge-sorting a file, by breaking it up into individual files and joining the files back together one at a time.</Description>
+		<Copyright>2022 No Edge Software LLC</Copyright>
+		<RepositoryUrl>https://github.com/jtenos/MergeSortFile</RepositoryUrl>
+		<PackageTags>merge-sort</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>
