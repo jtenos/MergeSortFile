@@ -18,3 +18,9 @@ Each individual file is then sorted inline, so you have individual files of a sm
 The first two files are merge-sorted into a third file, and deleted. This process continues until there is one file remaining. The final file is then moved to the final output file.
 
 If you want to watch what's happening, you'll need to pass in the logger object.
+
+Install from NuGet:
+
+```
+dotnet add package NoEdgeSoftware.MergeSortFile
+```
