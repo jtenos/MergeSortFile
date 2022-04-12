@@ -19,7 +19,7 @@ The first two files are merge-sorted into a third file, and deleted. This proces
 
 If you want to watch what's happening, you'll need to pass in the logger object.
 
-Install from [NuGet](https://www.nuget.org/packages/NoEdgeSoftware.MergeSortFile/){:target=_blank}:
+Install from [NuGet](https://www.nuget.org/packages/NoEdgeSoftware.MergeSortFile/){:target="_blank"}:
 
 ```
 dotnet add package NoEdgeSoftware.MergeSortFile
